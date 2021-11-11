@@ -1,7 +1,8 @@
 # sap-api-integrations-billing-document-events  
-sap-api-integrations-billing-document-events は、外部システム(特にエッジコンピューティング環境)をSAPと統合することを目的に、SAP API で請求書データを取得するマイクロサービスです。    
-sap-api-integrations-billing-document-events には、サンプルのAPI Json フォーマットが含まれています。   
-sap-api-integrations-billing-document-events は、オンプレミス版である（＝クラウド版ではない）SAPS4HANA API の利用を前提としています。クラウド版APIを利用する場合は、ご注意ください。   
+sap-api-integrations-billing-document-events は、外部システム(特にエッジコンピューティング環境)をSAPと統合することを目的として、SAP上で発生した請求伝票イベントを、SAP API で出力するマイクロサービスです。  
+sap-api-integrations-billing-document-events には、サンプルのAPI Json フォーマットが含まれています。  
+sap-api-integrations-billing-document-events は、オンプレミス版である（＝クラウド版ではない）SAPS4HANABusinessEvents の利用を前提としています。  
+クラウド版APIを利用する場合は、ご注意ください。  
 https://api.sap.com/event/SAPS4HANABusinessEvents_BillingDocumentEvents/overview  
 
 ## 動作環境  
