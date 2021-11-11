@@ -1,0 +1,165 @@
+{"openapi":"3.0.0",
+  "info":{
+    "title":"Billing Document",
+    "version":"1.0",
+    "description":"Billing document is an umbrella term for invoices, credit memos, debit memos, pro forma invoices, and their respective cancellation documents. The following events are available for billing document: \n - Billing document canceled \n - Billing document changed \n - Billing Document created"},
+    "externalDocs":{
+      "description":"Business Documentation",
+      "url":"https://help.sap.com/viewer/19d48293097f4a2589433856b034dfa5/2021.000/en-US/28ff5a6e242249e0b82645ca26d46043.html"},
+      "components":{
+        "schemas":{
+          "sap.s4.beh.billingdocument.v1.BillingDocument.Canceled.v1":{
+            "type":"object",
+            "properties":{
+              "BillingDocument":{"type":"string"},
+              "BillingDocumentType":{"type":"string"},
+              "BillingIssueType":{"type":"string"},
+              "OverallBillingStatus":{"type":"string"},
+              "SDDocumentCategory":{"type":"string"}
+              }
+          },
+          "sap.s4.beh.billingdocument.v1.BillingDocument.Changed.v1":{
+            "type":"object",
+            "properties":{
+              "BillingDocument":{"type":"string"},
+              "BillingDocumentType":{"type":"string"},
+              "BillingIssueType":{"type":"string"},
+              "OverallBillingStatus":{"type":"string"},
+              "SDDocumentCategory":{"type":"string"}
+              }
+          },
+          "sap.s4.beh.billingdocument.v1.BillingDocument.Created.v1":{
+            "type":"object",
+            "properties":{
+              "BillingDocument":{"type":"string"},
+              "BillingDocumentType":{"type":"string"},
+              "BillingIssueType":{"type":"string"},
+              "OverallBillingStatus":{"type":"string"},
+              "SDDocumentCategory":{"type":"string"}
+              }
+          },
+          "CloudContext":{
+            "title":"Schema for the CloudEvents context fields.",
+            "description":"This is a schema specification for the context fields as per CloudEvent standards.",
+            "type":"object",
+            "properties":{
+              "specversion":{
+                "description":"The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.",
+                "type":"string"},
+                "type":{
+                  "description":"Type of occurrence which has happened. Often this property is used for routing, observability, policy enforcement, etc.",
+                  "type":"string",
+                  "minLength":1},
+                "source":{
+                  "description":"This describes the event producer.",
+                  "type":"string",
+                  "format":"uri-reference"},
+                "subject":{
+                  "description":"The subject of the event in the context of the event producer (identified by source).",
+                  "type":"string",
+                "minLength":1},
+                "id":{
+                  "description":"ID of the event.",
+                  "type":"string",
+                  "minLength":1},
+                "time":{
+                  "description":"Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+                  "type":"string",
+                  "format":"date-time"},
+                "datacontenttype":{
+                  "description":"Describe the data encoding format",
+                  "type":"string"}
+              },
+            "required":["id","specversion","source","type"]
+          }
+        }
+      },
+    "paths":{
+      "/sap.s4.beh.billingdocument.v1.BillingDocument.Canceled.v1":{
+        "post":{
+          "tags":["Canceled"],
+          "x-payload":"",
+          "description":"This event is raised when a billing document is canceled.",
+          "summary":"Billing Document Canceled",
+          "requestBody":{
+            "content":{
+              "application/json":{
+                "schema":{
+                  "allOf":[
+                    {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                    {"type":"object",
+                      "properties":{
+                        "data":{
+                          "description":"Data Fields",
+                          "$ref":"#/components/schemas/sap.s4.beh.billingdocument.v1.BillingDocument.Canceled.v1"}
+                          }
+                    }
+                    ]
+                    }
+                    }
+              }
+          },
+          "responses":{
+            "default":{"description":""}
+          }
+        }
+      },
+    "/sap.s4.beh.billingdocument.v1.BillingDocument.Changed.v1":{
+      "post":{
+        "tags":["Changed"],
+        "x-payload":"",
+        "description":"This event is raised when a billing document is changed.",
+        "summary":"Billing Document Changed",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object",
+                    "properties":{
+                      "data":{
+                        "description":"Data Fields",
+                        "$ref":"#/components/schemas/sap.s4.beh.billingdocument.v1.BillingDocument.Changed.v1"}
+                        }
+                  }
+                  ]
+                  }
+              }
+          }
+        },
+        "responses":{
+          "default":{"description":""}
+        }
+      }
+     },
+    "/sap.s4.beh.billingdocument.v1.BillingDocument.Created.v1":{
+      "post":{
+        "tags":["Created"],
+        "x-payload":"",
+        "description":"This event is raised when a billing document is created.","summary":"Billing Document Created",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object",
+                    "properties":{
+                      "data":{
+                        "description":"Data Fields",
+                        "$ref":"#/components/schemas/sap.s4.beh.billingdocument.v1.BillingDocument.Created.v1"}
+                        }
+                  }
+                  ]
+              }
+              }
+            }
+          },
+          "responses":{
+            "default":{"description":""}
+          }
+        }
+      }
+    }
+}
